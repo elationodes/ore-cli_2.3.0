@@ -8,6 +8,26 @@ use equix;
 use drillx;
 use spinner;
 
+use ore_api::{
+    consts::{BUS_ADDRESSES, BUS_COUNT, EPOCH_DURATION},
+    state::{Bus, Config, Proof},
+};
+use ore_utils::AccountDeserialize;
+use rand::Rng;
+use solana_program::pubkey::Pubkey;
+use solana_rpc_client::spinner;
+use solana_sdk::signer::Signer;
+
+use crate::{
+    args::MineArgs,
+    send_and_confirm::ComputeBudget,
+    utils::{
+        amount_u64_to_string, get_clock, get_config, get_updated_proof_with_authority, proof_pubkey,
+    },
+    Miner,
+};
+
+
 impl Miner {
     async fn mine(&self, signer: &Signer, solution: Solution, config: &Config) {
         // Build instruction set
