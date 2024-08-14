@@ -4,8 +4,8 @@ use std::time::Instant;
 use rand::Rng;
 use ore_api::instruction;
 use core_affinity;
-use equix;
-use drillx;
+# use equix;
+# use drillx;
 use spinner;
 
 use ore_api::{
