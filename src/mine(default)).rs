@@ -18,7 +18,7 @@ use crate::{
     args::MineArgs,
     send_and_confirm::ComputeBudget,
     utils::{
-        amount_u64_to_string, get_clock, get_config, get_updated_proof_with_authority, proof_pubkey,
+        amount_u64_to_string, thread, get_clock, get_config, get_updated_proof_with_authority, proof_pubkey,
     },
     Miner,
 };
