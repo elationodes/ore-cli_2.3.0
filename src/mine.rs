@@ -13,7 +13,7 @@ use rand::Rng;
 use solana_program::pubkey::Pubkey;
 use solana_rpc_client::spinner;
 use solana_sdk::signer::Signer;
-
+use std::thread;
 use crate::{
     args::MineArgs,
     send_and_confirm::ComputeBudget,
@@ -145,7 +145,7 @@ impl Miner {
             .collect();
 
         // Join handles and return best nonce
-        let mut best_nonce = 0;
+        let mut best_nonce = i32 = 0;
         let mut best_difficulty = 0;
         let mut best_hash = Hash::default();
         for h in handles {
